@@ -15,12 +15,27 @@
         display: inline;
       }
     </style>
-    
     <h2 class="inline-h1">Please, fill your note details:</h2>
-    <pre style="color: green; font-weight: bold; font-size: 20px;" class="inline-h1"><%
-String name = request.getParameter("title");
-out.println("  "+name + " is added successfully!");
-%></pre>
+    <%String name = request.getParameter("title");%>
+    
+    <pre  id="3sec" style="color: green; font-weight: bold; font-size: 20px;" class="inline-h1"><% 
+    		if (name != null)
+    		{
+    			out.println(name+" note added successfully.");
+    			
+    		}
+    		else{
+    			out.println("");
+    		}
+    		%></pre>
+    	     <script >
+    	     disp=document.getElementById("3sec").innerHTML;
+    	     setTimeout(function(){
+    	    	 disp=document.getElementById("3sec").innerHTML = '';},3000);
+    	    </script>
+    	    
+    
+    
     <!--This is add note form -->
     <form action="SaveNoteServlet" method="post">
   <div class="mb-3">
